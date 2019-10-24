@@ -1,0 +1,30 @@
+<?php
+    $collection = $this->getTestCollection();
+?>
+<table class="data table" id="test-data-table">
+    <caption class="table-caption">Authors</caption>
+    <thead>
+        <tr>
+            <th scope="col" class="col firstname">First name</th>
+            <th scope="col" class="col lastname">Last name</th>
+            <th scope="col" class="col fullname">Full name</th>
+            <th scope="col" class="col image">Image</th>
+            <th scope="col" class="col actions">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($collection as $key => $data): ?>
+            <tr>
+                <td data-th="Firstname" class="col firstname"><?php echo $data->getFirstname(); ?></td>
+                <td data-th="Lastname" class="col lastname"><?php echo $data->getLastname(); ?></td>
+                <td data-th="Fullname" class="col fullname"><?php echo $data->getFullname(); ?></td>
+                <td data-th="Image" class="col image"><?php echo $data->getImage(); ?></td>
+                <td data-th="Actions" class="col actions">
+                    <a href="<?php echo $block->getBaseUrl().'test/index/view/id/'.$data->getTestId(); ?>" class="action view">
+                        <span>View</span>
+                    </a>
+                </td>
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
